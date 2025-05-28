@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>История поисков</title>
+</head>
+<body>
+    <h1>Ваша история поисков</h1>
+    <a href="{% url 'index' %}">На главную</a>
+    <ul>
+        {% for item in history %}
+            <li>{{ item.city }} - {{ item.timestamp }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
