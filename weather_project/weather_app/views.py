@@ -52,7 +52,7 @@ def get_weather_data(city_name):
         weather_responses = om.weather_api("https://api.open-meteo.com/v1/forecast", params=params)
         weather_response = weather_responses[0]
         current = weather_response.Current()
-        current_windspeed_10m = current.Variables(1)
+        current_windspeed_10m = current.Variables(2)
         current_variables = list(map(lambda i: current.Variables(i), range(0, current.VariablesLength())))
         current_temperature_2m = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2, current_variables))
         current_relative_humidity_2m = next(filter(lambda x: x.Variable() == Variable.relative_humidity and x.Altitude() == 2, current_variables))
